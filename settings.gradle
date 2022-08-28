@@ -16,3 +16,4 @@ rootProject.name = "netflix"
 include ':app'
 include ':core'
 include ':styling'
+include ':shared'
