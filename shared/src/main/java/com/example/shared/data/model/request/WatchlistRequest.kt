@@ -4,5 +4,5 @@ import com.google.gson.annotations.SerializedName
 
 class WatchlistRequest(
     @SerializedName("movie_id")
-    val movieId: Int
+    val movieId: String
 )

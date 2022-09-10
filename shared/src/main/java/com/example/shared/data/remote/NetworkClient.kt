@@ -1,6 +1,7 @@
 package com.example.shared.data.remote
 
 import com.chuckerteam.chucker.api.ChuckerInterceptor
+import com.example.core.BuildConfig
 import com.example.shared.domain.GetUserTokenUseCase
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
@@ -23,7 +24,7 @@ class NetworkClient(
                 getTokenUseCase().first { tokenRespose ->
                     val token = tokenRespose.payload
                     if (!token.isNullOrEmpty()) {
-                        requestBuilder.addHeader("Authorization", "Bearer ${token}")
+                        requestBuilder.addHeader("Authorization", "Bearer $token")
                     }
                     true
                 }
@@ -34,6 +35,7 @@ class NetworkClient(
         // okhttp
         val okHttpClient = OkHttpClient
             .Builder()
+            .addInterceptor(authInterceptor)
             .addInterceptor(chuckerInterceptor)
             .connectTimeout(120, TimeUnit.SECONDS)
             .readTimeout(120, TimeUnit.SECONDS)
@@ -42,7 +44,7 @@ class NetworkClient(
         // retrofit
         val retrofitClient = Retrofit
             .Builder()
-//            .baseUrl(BuildConfig.BASE_URL)
+            .baseUrl(BuildConfig.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(okHttpClient)
             .build()

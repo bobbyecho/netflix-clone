@@ -2,8 +2,7 @@ package com.example.shared.data.model.mapper
 
 import com.example.shared.data.model.response.UserResponse
 import com.example.shared.data.model.viewParam.UserViewParam
-import com.example.shared.utils.Mapper
-import com.google.gson.annotations.SerializedName
+import com.example.shared.utils.mapper.Mapper
 
 object UserMapper: Mapper.ViewParamMapper<UserResponse, UserViewParam> {
     override fun toViewParam(dataObject: UserResponse?): UserViewParam = UserViewParam(

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="error_field_email">email must fill</string>
+    <string name="error_field_password">password must fill</string>
+    <string name="error_field_email_not_valid">format email not valid</string>
+</resources>

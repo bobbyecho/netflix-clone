@@ -3,6 +3,7 @@ package com.example.shared.data.local.datastore
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
+import com.example.core.wrapper.DataResource
 import com.example.shared.data.model.response.UserResponse
 import com.google.gson.Gson
 import kotlinx.coroutines.flow.Flow
@@ -14,7 +15,6 @@ interface UserPreferenceDataSource {
     suspend fun setUserToken(newUserToken: String)
     suspend fun isUserLoggedIn(): Flow<Boolean>
     suspend fun setUserLoginStatus(isUserLoggedIn: Boolean)
-    // todo: get set userdata
     suspend fun getCurrentUser(): Flow<UserResponse>
     suspend fun setCurrentUser(user: UserResponse)
 }

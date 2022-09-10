@@ -24,9 +24,7 @@ abstract class BaseActivity<B: ViewBinding, VM: ViewModel>(
 
     abstract fun initView()
 
-    open fun observeData() {
-        TODO("Not yet implemented")
-    }
+    abstract fun observeData()
 
     open fun showError(isErrorEnabled: Boolean, exception: Exception) {
         if(isErrorEnabled) {

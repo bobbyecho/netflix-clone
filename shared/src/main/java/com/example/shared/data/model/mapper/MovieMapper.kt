@@ -2,7 +2,7 @@ package com.example.shared.data.model.mapper
 
 import com.example.shared.data.model.response.MovieResponse
 import com.example.shared.data.model.viewParam.MovieViewParam
-import com.example.shared.utils.Mapper
+import com.example.shared.utils.mapper.Mapper
 
 object MovieMapper: Mapper.ViewParamMapper<MovieResponse, MovieViewParam> {
     override fun toViewParam(dataObject: MovieResponse?): MovieViewParam = MovieViewParam(
