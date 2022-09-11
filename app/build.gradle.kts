@@ -39,4 +39,5 @@ dependencies {
     implementation(project(":feature:splashscreen"))
     implementation(project(":feature:login"))
     implementation(project(":feature:home"))
+    implementation(project(":feature:registration"))
 }

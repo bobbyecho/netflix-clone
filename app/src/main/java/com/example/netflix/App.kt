@@ -3,6 +3,7 @@ package com.example.netflix
 import android.app.Application
 import com.example.login.di.LoginModules
 import com.example.netflix.di.AppModules
+import com.example.registration.di.RegisterModules
 import com.example.shared.di.SharedModules
 import com.example.splashscreen.di.SplashScreenModules
 import org.koin.android.ext.koin.androidContext
@@ -19,7 +20,8 @@ class App: Application() {
                 AppModules.getModules() +
                         SharedModules.getModules() +
                         SplashScreenModules.getModules() +
-                        LoginModules.getModules()
+                        LoginModules.getModules() +
+                        RegisterModules.getModules()
             )
         }
     }

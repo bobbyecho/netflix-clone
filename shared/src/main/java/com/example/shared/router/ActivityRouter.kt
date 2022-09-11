@@ -6,4 +6,5 @@ import android.content.Intent
 interface ActivityRouter {
     fun loginActivity(context: Context): Intent
     fun homeActivity(context: Context): Intent
+    fun registerActivity(context: Context): Intent
 }

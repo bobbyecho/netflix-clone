@@ -25,7 +25,7 @@ class LoginActivity: BaseActivity<ActivityLoginBinding, LoginViewModel>(Activity
             )
         }
         binding.btnAlreadyHaveAccount.setOnClickListener {
-            //todo : to register
+            navigateToRegister()
         }
         binding.etPassword.listen(beforeTextChanged = {
             binding.tilPassword.endIconMode = TextInputLayout.END_ICON_PASSWORD_TOGGLE
@@ -82,5 +82,9 @@ class LoginActivity: BaseActivity<ActivityLoginBinding, LoginViewModel>(Activity
             flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
         })
         finish()
+    }
+
+    private fun navigateToRegister() {
+        startActivity(router.registerActivity(this))
     }
 }

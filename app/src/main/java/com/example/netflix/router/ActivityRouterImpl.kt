@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import com.example.home.presentation.ui.HomeActivity
 import com.example.login.presentation.ui.LoginActivity
+import com.example.registration.presentation.ui.RegisterActivity
 import com.example.shared.router.ActivityRouter
 
 class ActivityRouterImpl: ActivityRouter {
@@ -13,5 +14,9 @@ class ActivityRouterImpl: ActivityRouter {
 
     override fun homeActivity(context: Context): Intent {
         return Intent(context, HomeActivity::class.java)
+    }
+
+    override fun registerActivity(context: Context): Intent {
+        return Intent(context, RegisterActivity::class.java)
     }
 }

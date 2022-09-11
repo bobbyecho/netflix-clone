@@ -16,7 +16,9 @@
             <option value="$PROJECT_DIR$/feature" />
             <option value="$PROJECT_DIR$/feature/home" />
             <option value="$PROJECT_DIR$/feature/login" />
+            <option value="$PROJECT_DIR$/feature/registration" />
             <option value="$PROJECT_DIR$/feature/splashscreen" />
+            <option value="$PROJECT_DIR$/registration" />
             <option value="$PROJECT_DIR$/shared" />
             <option value="$PROJECT_DIR$/styling" />
           </set>
