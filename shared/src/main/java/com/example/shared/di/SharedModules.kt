@@ -14,6 +14,7 @@ import com.example.shared.data.repository.SharedApiRepository
 import com.example.shared.data.repository.SharedApiRepositoryImpl
 import com.example.shared.data.repository.UserPreferenceRepositoryImpl
 import com.example.shared.data.repository.UserPreferenceRepository
+import com.example.shared.domain.AddOrRemoveWatchListUseCase
 import com.example.shared.domain.SaveAuthDataUseCase
 import com.google.gson.Gson
 import kotlinx.coroutines.Dispatchers
@@ -58,6 +59,7 @@ object SharedModules: BaseModules {
     private val sharedUseCase = module {
         single { GetUserTokenUseCase(get(), Dispatchers.IO) }
         single { SaveAuthDataUseCase(get(), Dispatchers.IO) }
+        single { AddOrRemoveWatchListUseCase(get(), Dispatchers.IO) }
     }
 
     private val common = module {

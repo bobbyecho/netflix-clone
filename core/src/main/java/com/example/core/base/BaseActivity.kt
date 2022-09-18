@@ -24,7 +24,9 @@ abstract class BaseActivity<B: ViewBinding, VM: ViewModel>(
 
     abstract fun initView()
 
-    abstract fun observeData()
+    open fun observeData() {
+
+    }
 
     open fun showError(isErrorEnabled: Boolean, exception: Exception) {
         if(isErrorEnabled) {

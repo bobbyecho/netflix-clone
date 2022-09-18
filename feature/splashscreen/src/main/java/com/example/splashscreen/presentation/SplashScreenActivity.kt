@@ -8,11 +8,12 @@ import com.example.shared.utils.ext.subscribe
 import com.example.splashscreen.databinding.ActivitySplashScreenBinding
 import org.koin.android.ext.android.inject
 
-class SplashScreenActivity: BaseActivity<ActivitySplashScreenBinding, SplashScreenViewModel> (
-    ActivitySplashScreenBinding::inflate
-) {
+class SplashScreenActivity :
+    BaseActivity<ActivitySplashScreenBinding, SplashScreenViewModel>(ActivitySplashScreenBinding::inflate) {
+
     override val viewModel: SplashScreenViewModel by inject()
-    private val activityRouter: ActivityRouter by inject()
+
+    val activityRouter: ActivityRouter by inject()
 
     override fun initView() {
         viewModel.syncUser()
@@ -48,4 +49,5 @@ class SplashScreenActivity: BaseActivity<ActivitySplashScreenBinding, SplashScre
         })
         finish()
     }
+
 }

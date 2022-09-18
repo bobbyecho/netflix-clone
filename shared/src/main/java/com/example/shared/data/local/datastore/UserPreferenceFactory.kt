@@ -32,6 +32,6 @@ object UserPreferenceKey {
 
 object PreferenceKey {
     const val PREF_USER_TOKEN = "PREF_USER_TOKEN"
-    const val PREF_IS_USER_LOGGED_IN = "PREF_USER_TOKEN"
+    const val PREF_IS_USER_LOGGED_IN = "PREF_IS_USER_LOGGED_IN"
     const val PREF_USER_OBJECT = "PREF_USER_OBJECT"
 }

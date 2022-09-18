@@ -35,7 +35,7 @@ abstract class BaseFragment<B: ViewBinding, VM: ViewModel>(
     abstract fun initView()
 
     open fun observeData() {
-        TODO("Not yet implemented")
+
     }
 
     open fun showError(isErrorEnabled: Boolean, exception: Exception) {

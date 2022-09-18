@@ -6,7 +6,7 @@ data class AuthResponse(
     @SerializedName("token")
     val token: String?,
     @SerializedName("token_type")
-    val token_type: String?,
+    val tokenType: String?,
     @SerializedName("user")
-    val user: UserResponse?,
+    val user: UserResponse?
 )

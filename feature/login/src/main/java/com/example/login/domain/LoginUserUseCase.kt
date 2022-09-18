@@ -43,8 +43,8 @@ class LoginUserUseCase(
                                             )
                                         }
                                     }
-                                }, doOnError = {
-
+                                }, doOnError = { error ->
+                                    emit(ViewResource.Error(error.exception))
                                 }
                             )
                         }

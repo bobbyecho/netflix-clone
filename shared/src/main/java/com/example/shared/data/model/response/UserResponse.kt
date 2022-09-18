@@ -1,6 +1,5 @@
 package com.example.shared.data.model.response
 
-
 import com.google.gson.annotations.SerializedName
 
 data class UserResponse(

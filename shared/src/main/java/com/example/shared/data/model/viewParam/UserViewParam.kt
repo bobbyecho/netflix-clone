@@ -7,5 +7,5 @@ class UserViewParam(
     val email: String,
     val gender: Int,
     val id: Int,
-    val username: String,
+    val username: String
 )

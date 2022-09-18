@@ -2,13 +2,13 @@ package com.example.shared.data.model.response
 
 import com.google.gson.annotations.SerializedName
 
-data class BaseResponse<T>(
+data class BaseResponse<D>(
     @SerializedName("code")
     val code: Int?,
     @SerializedName("success")
-    val success: Boolean?,
+    val isSuccess: Boolean?,
     @SerializedName("message")
     val message: String?,
     @SerializedName("data")
-    val data: T?,
+    val data: D?,
 )

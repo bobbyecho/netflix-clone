@@ -12,17 +12,16 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 class NetworkClient(
-    val getTokenUseCase: GetUserTokenUseCase,
+    val getUserTokenUseCase: GetUserTokenUseCase,
     val chuckerInterceptor: ChuckerInterceptor
 ) {
+
     inline fun <reified I> create(): I {
         val authInterceptor = Interceptor {
-            val requestBuilder = it
-                .request()
-                .newBuilder()
+            val requestBuilder = it.request().newBuilder()
             runBlocking {
-                getTokenUseCase().first { tokenRespose ->
-                    val token = tokenRespose.payload
+                getUserTokenUseCase().first { tokenResponse ->
+                    val token = tokenResponse.payload
                     if (!token.isNullOrEmpty()) {
                         requestBuilder.addHeader("Authorization", "Bearer $token")
                     }
@@ -31,24 +30,20 @@ class NetworkClient(
             }
             it.proceed(requestBuilder.build())
         }
-
-        // okhttp
-        val okHttpClient = OkHttpClient
-            .Builder()
+        //okhttp
+        val okhttpClient = OkHttpClient.Builder()
             .addInterceptor(authInterceptor)
             .addInterceptor(chuckerInterceptor)
             .connectTimeout(120, TimeUnit.SECONDS)
             .readTimeout(120, TimeUnit.SECONDS)
             .build()
 
-        // retrofit
-        val retrofitClient = Retrofit
-            .Builder()
+        val retrofit = Retrofit.Builder()
             .baseUrl(BuildConfig.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
-            .client(okHttpClient)
+            .client(okhttpClient)
             .build()
 
-        return retrofitClient.create(I::class.java)
+        return retrofit.create(I::class.java)
     }
 }

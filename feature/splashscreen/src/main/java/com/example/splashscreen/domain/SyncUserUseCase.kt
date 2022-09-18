@@ -1,5 +1,6 @@
 package com.example.splashscreen.domain
 
+import android.widget.Toast
 import com.example.core.base.BaseUseCase
 import com.example.core.wrapper.ViewResource
 import com.example.shared.data.model.mapper.UserMapper
@@ -15,10 +16,11 @@ import kotlinx.coroutines.flow.flow
 typealias SyncResult = Pair<Boolean, UserViewParam?>
 
 class SyncUserUseCase(
-    val splashScreenRepository: SplashScreenRepository,
-    val userPreferenceRepository: UserPreferenceRepository,
+    private val splashScreenRepository: SplashScreenRepository,
+    private val userPreferenceRepository: UserPreferenceRepository,
     dispatcher: CoroutineDispatcher
-): BaseUseCase<Nothing, SyncResult>(dispatcher) {
+) : BaseUseCase<Nothing, SyncResult>(dispatcher) {
+
     override suspend fun execute(param: Nothing?): Flow<ViewResource<SyncResult>> {
         return flow {
             userPreferenceRepository.isUserLoggedIn().first().suspendSubscribe(
@@ -27,23 +29,20 @@ class SyncUserUseCase(
                         splashScreenRepository.doUserSync().collect {
                             it.suspendSubscribe(
                                 doOnSuccess = { response ->
-                                    emit(ViewResource.Success(
-                                        Pair(true, UserMapper.toViewParam(response.payload?.data?.userResponse))
-                                    ))
-                                },
-                                doOnError = { error ->
+                                    emit(ViewResource.Success(Pair(true, UserMapper.toViewParam(response.payload?.data?.userResponse))))
+                                }, doOnError = { error ->
                                     emit(ViewResource.Error(error.exception))
-                                }
-                            )
+                                })
                         }
                     } else {
-                        emit(ViewResource.Success(Pair(false, null)))
+                        emit(
+                            ViewResource.Success(Pair(false, null))
+                        )
                     }
                 },
                 doOnError = { error ->
                     emit(ViewResource.Error(error.exception))
-                }
-            )
+                })
         }
     }
 }
