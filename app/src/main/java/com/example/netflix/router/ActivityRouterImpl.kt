@@ -2,7 +2,7 @@ package com.example.netflix.router
 
 import android.content.Context
 import android.content.Intent
-import com.example.home.presentation.ui.HomeActivity
+import com.example.home.presentation.ui.home.HomeActivity
 import com.example.login.presentation.ui.LoginActivity
 import com.example.registration.presentation.ui.RegisterActivity
 import com.example.shared.router.ActivityRouter

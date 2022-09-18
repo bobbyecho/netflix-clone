@@ -1,6 +1,7 @@
 package com.example.netflix
 
 import android.app.Application
+import com.example.home.di.HomeModules
 import com.example.login.di.LoginModules
 import com.example.netflix.di.AppModules
 import com.example.registration.di.RegisterModules
@@ -21,7 +22,8 @@ class App: Application() {
                         SharedModules.getModules() +
                         SplashScreenModules.getModules() +
                         LoginModules.getModules() +
-                        RegisterModules.getModules()
+                        RegisterModules.getModules() +
+                        HomeModules.getModules()
             )
         }
     }

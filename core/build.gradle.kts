@@ -51,6 +51,7 @@ dependencies {
     api(Libraries.androidxAppcompat)
     api(Libraries.googleAndroidMaterial)
     api(Libraries.androidxConstraintLayout)
+    api(Libraries.swipeRefreshLayout)
 
     testApi(Libraries.junit)
     androidTestApi(Libraries.androidJunit)
